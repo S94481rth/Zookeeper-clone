@@ -13,8 +13,11 @@ app.use('/beat', receiveHeartbeatRoutes)
 
 
 const fn = require("./server/utilities/sendServersToRP").fn
-setTimeout(fn, 10000)
+setInterval(fn, 1000)
+
+const Servers = require("./server/utilities/Servers")
 
 app.listen(PORT, () => {
+    new Servers()
     console.log(`Listening on the port number ${PORT}`)
 })
